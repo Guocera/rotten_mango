@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  private
+  protected
 
   def movie_params
     params.require(:movie).permit(
