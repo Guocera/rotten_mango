@@ -1,6 +1,8 @@
 <%= link_to "Back to all movies", movies_path %> <br />
 
 <h1>List of Users</h1>
+<%= paginate @users %>
+
 <% if @users %>
   <ul>
     <% @users.each do |user| %>
