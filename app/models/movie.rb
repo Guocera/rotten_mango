@@ -13,8 +13,8 @@ class Movie < ActiveRecord::Base
   validates :description,
     presence: true
 
-  # validates :poster_image_url,
-  #   presence: true
+  validates :image,
+    presence: true
 
   validates :release_date,
     presence: true
