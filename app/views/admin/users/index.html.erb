@@ -1,2 +1,8 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<h1>List of Users</h1>
+<% if @users %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.full_name %></li>
+    <% end %>  
+  </ul> 
+<% end %>   
