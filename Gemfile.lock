@@ -159,6 +159,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  mail
   mini_magick
   rails (= 4.2.5.1)
   sass-rails (~> 5.0)

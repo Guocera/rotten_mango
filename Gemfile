@@ -31,6 +31,8 @@ gem 'mini_magick'
 
 gem 'kaminari'
 
+gem 'mail'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
