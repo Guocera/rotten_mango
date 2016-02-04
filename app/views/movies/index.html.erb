@@ -7,6 +7,8 @@
   <%= text_field_tag :title %> <br />
   <%= label_tag :director %> <br />
   <%= text_field_tag :director %> <br />
+  <%= label_tag (:runtime_in_minutes) %> <br />
+  <%= select_tag :runtime_in_minutes, options_for_select([["Select Duration"], ["Under 90 minutes", "90"], ["Between 90 and 120 minutes", "120"], ["Over 120 minutes", "121"]]) %> <br />
   <%= submit_tag "Search" %>
 <% end %>
 
@@ -19,4 +21,4 @@
   <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
   <p><%= movie.description %></p>
   <hr />
-<% end %>
+<% end %> 

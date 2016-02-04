@@ -3,7 +3,23 @@ class MoviesController < ApplicationController
     @movies = Movie.all
     @movies = @movies.where("title LIKE :title", title: "%#{params[:title]}%") if params[:title]
     @movies = @movies.where("director LIKE :director", director: "%#{params[:director]}%") if params[:director]
-    # @movies = Movie.where("title LIKE :title", title: "%#{params[:title]}%") if params[:title]
+    case runtime_in_minutes = params[:runtime_in_minutes]
+    when "90"
+      @movies = @movies.where(
+       "runtime_in_minutes < :runtime_in_minutes",
+       runtime_in_minutes: runtime_in_minutes
+      )
+    when "120"
+      @movies = @movies.where(
+        "runtime_in_minutes > :min AND runtime_in_minutes < :max", 
+        min: 90, max: 120
+      )
+    when "121"
+      @movies = @movies.where(
+       "runtime_in_minutes > :runtime_in_minutes",
+       runtime_in_minutes: runtime_in_minutes
+      )
+    end
 
 
   end
