@@ -1,6 +1,11 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    if params[:title]
+      @movies = Movie.where("title LIKE :title", title: "%#{params[:title]}%")
+    else
+      @movies = Movie.all      
+    end
+
   end
 
   def show
@@ -51,7 +56,8 @@ class MoviesController < ApplicationController
       :runtime_in_minutes, 
       :image, 
       :remote_image_url,
-      :description
+      :description,
+      :commit
     )
   end
 end
