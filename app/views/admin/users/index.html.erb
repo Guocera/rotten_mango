@@ -6,7 +6,7 @@
 <% if @users %>
   <ul>
     <% @users.each do |user| %>
-      <li><%= user.full_name %></li>
+      <li><%= link_to "#{user.full_name}", admin_user_path(user) %></li>
     <% end %>  
   </ul> 
 <% end %>

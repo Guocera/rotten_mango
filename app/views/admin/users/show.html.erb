@@ -1,2 +1,4 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<%= link_to "Back to all users", admin_users_path %> <br />
+
+<h1><%= @user.full_name %></h1>
+<h2><%= @user.email %></h2>
