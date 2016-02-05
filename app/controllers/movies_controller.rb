@@ -4,21 +4,12 @@ class MoviesController < ApplicationController
     @movies = @movies.search_by_title(params[:title]) if params[:title]
     @movies = @movies.search_by_director(params[:director]) if params[:director]
     case runtime_in_minutes = params[:runtime_in_minutes]
-    when "90"
-      @movies = @movies.where(
-       "runtime_in_minutes < :runtime_in_minutes",
-       runtime_in_minutes: runtime_in_minutes
-      )
-    when "120"
-      @movies = @movies.where(
-        "runtime_in_minutes > :min AND runtime_in_minutes < :max", 
-        min: 90, max: 120
-      )
-    when "121"
-      @movies = @movies.where(
-       "runtime_in_minutes > :runtime_in_minutes",
-       runtime_in_minutes: runtime_in_minutes
-      )
+    when "Under 90 minutes"
+      @movies = @movies.duration_less_than_90
+    when "Between 90 and 120 minutes"
+      @movies = @movies.duration_btwn_90_and_120
+    when "Over 120 minutes"
+      @movies = @movies.duration_more_than_120
     end
 
 
