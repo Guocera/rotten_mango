@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
-    @movies = @movies.where("title LIKE :title", title: "%#{params[:title]}%") if params[:title]
+    @movies = @movies.search_by_title(params[:title]) if params[:title]
     @movies = @movies.where("director LIKE :director", director: "%#{params[:director]}%") if params[:director]
     case runtime_in_minutes = params[:runtime_in_minutes]
     when "90"

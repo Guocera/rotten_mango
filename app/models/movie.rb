@@ -23,6 +23,10 @@ class Movie < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  def self.search_by_title(title)
+    where("title LIKE :title", title: "%#{title}%")
+  end
+
   def review_average
     reviews.size == 0 ? 0 : (reviews.sum(:rating_out_of_ten).to_f/reviews.size.to_f).round(1)
   end
