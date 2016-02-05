@@ -27,6 +27,10 @@ class Movie < ActiveRecord::Base
     where("title LIKE :title", title: "%#{title}%")
   end
 
+  def self.search_by_director(director)
+    where("director LIKE :director", director: "%#{director}%")
+  end
+
   def review_average
     reviews.size == 0 ? 0 : (reviews.sum(:rating_out_of_ten).to_f/reviews.size.to_f).round(1)
   end
