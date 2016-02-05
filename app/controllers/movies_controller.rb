@@ -1,8 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
-    @movies = @movies.search_by_title(params[:title]) if params[:title]
-    @movies = @movies.search_by_director(params[:director]) if params[:director]
+    @movies = @movies.search_by_title_or_director(params[:title_or_director]) if params[:title_or_director]
     case runtime_in_minutes = params[:runtime_in_minutes]
     when "Under 90 minutes"
       @movies = @movies.duration_less_than_90

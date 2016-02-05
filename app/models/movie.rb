@@ -24,6 +24,10 @@ class Movie < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   # Scopes
+  def self.search_by_title_or_director(title_or_director)
+    where("title LIKE :title_or_director OR director LIKE :title_or_director", title_or_director: "%#{title_or_director}%")
+  end
+
   def self.search_by_title(title)
     where("title LIKE :title", title: "%#{title}%")
   end
