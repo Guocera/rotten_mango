@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :users, only: [:new, :create, :update]
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :sessions, only: [:new, :create, :destroy]
   root to: 'movies#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
