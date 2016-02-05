@@ -33,6 +33,8 @@ gem 'kaminari'
 
 gem 'mail'
 
+gem 'bootstrap-sass'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
